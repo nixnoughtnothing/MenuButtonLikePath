@@ -1,4 +1,4 @@
-# MenuButtonLikePath
+# PathStyleMenu
 
 Path-Style menu button written in `Swift2.0`
 
