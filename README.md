@@ -14,7 +14,7 @@ Manually
 Just drag and drop the buttonLikePath.swift file in the PathLikeMenuButton folder into your project.
 ```
 
-**(2) Write Code below in your ViewController(feel free to customize menu button)**
+**(2) Write Code below in your ViewController(feel free to customize main button)**
 ```Swift
 
 override func viewDidLoad() {
