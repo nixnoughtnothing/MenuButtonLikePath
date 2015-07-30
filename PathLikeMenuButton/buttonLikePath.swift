@@ -49,7 +49,7 @@ class buttonLikePath: UIView {
     
     
     
-    
+    // MARK: - Methods -
     // subボタンの座標を返すメソッド
     func getPosition(angle: CGFloat, radius: CGFloat) -> CGPoint{
         
@@ -62,12 +62,10 @@ class buttonLikePath: UIView {
     }
     
     
-    // メインボタンイベント(touchUp時)
+    // MainButtonEvent(touchDown)
     func touchDownMainButton(sender: UIButton){
         
         self.backgroundColor = UIColor.whiteColor()
-        
-        
         
         if subButtonsShowed == nil{
             subButtonsShowed = false
@@ -76,10 +74,8 @@ class buttonLikePath: UIView {
         if subButtonsShowed == false{
             
             UIView.animateWithDuration(0.06,
-                // アニメーション中の処理
                 animations: {() -> Void in
                     
-                    // 拡大用アフィン行列を作成
                     self.subButton1.transform = CGAffineTransformMakeScale(1.0, 1.0)
                     self.subButton2.transform = CGAffineTransformMakeScale(1.0, 1.0)
                     self.subButton3.transform = CGAffineTransformMakeScale(1.0, 1.0)
@@ -110,13 +106,9 @@ class buttonLikePath: UIView {
             }
             
             UIView.animateWithDuration(0.06,
-                // アニメーション中の処理
                 animations: {() -> Void in
                     
-                    // 拡大用アフィン行列を作成
                     sender.transform = CGAffineTransformMakeScale(0.4, 0.4)
-                    
-                    // 縮小用アフィン行列を作成
                     sender.transform = CGAffineTransformMakeScale(1.0, 1.0)
                     
                 })
@@ -133,7 +125,6 @@ class buttonLikePath: UIView {
                 initialSpringVelocity:1.5,
                 options: UIViewAnimationOptions.CurveEaseIn,
                 
-                // アニメーション中の処理
                 animations: { () ->Void in
                     
                     // subボタンに座標を設定
@@ -145,19 +136,20 @@ class buttonLikePath: UIView {
                 }){(Bool) -> Void in
             }
             subButtonsShowed = true
+            
         }else{
             
             // mainボタンからの距離（半径）
             let radius: CGFloat = 0
             
             UIView.animateWithDuration(0.06,
-                // アニメーション中の処理
+
                 animations: {() -> Void in
                     
-                    // 拡大用アフィン行列を作成
+                    // reduction:縮小用アフィン行列を作成
                     sender.transform = CGAffineTransformMakeScale(0.4, 0.4)
                     
-                    // 縮小用アフィン行列を作成
+                    // expansion:縮小用アフィン行列を作成
                     sender.transform = CGAffineTransformMakeScale(1.0, 1.0)
                     
                 })
@@ -174,7 +166,6 @@ class buttonLikePath: UIView {
                 initialSpringVelocity:0.0,
                 options: UIViewAnimationOptions.CurveEaseIn,
                 
-                // アニメーション中の処理
                 animations: { () ->Void in
                     
                     // subボタンに座標を設定
@@ -188,10 +179,9 @@ class buttonLikePath: UIView {
             
             UIView.animateWithDuration(0.2,
                 
-                // アニメーション中の処理
                 animations: {() -> Void in
                     
-                    // 縮小用アフィン行列を作成
+                    // reduction: 縮小用アフィン行列を作成
                     self.subButton1.transform = CGAffineTransformMakeScale(0.08, 0.08)
                     self.subButton2.transform = CGAffineTransformMakeScale(0.08, 0.08)
                     self.subButton3.transform = CGAffineTransformMakeScale(0.08, 0.08)
@@ -205,11 +195,9 @@ class buttonLikePath: UIView {
     
     
     
-    
-    // subボタンイベント(背景の色を設定)
     func onClickSubButtons(sender: UIButton){
         
-        // 背景色をsubボタンの色に設定する
+        // make background color same as the sub button tapped
         switch(sender.tag){
         case 1:
             self.backgroundColor = colors[0] as? UIColor

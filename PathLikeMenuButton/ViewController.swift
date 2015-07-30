@@ -9,29 +9,22 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    // mainボタンを初期化
-    var mainButton = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // mainボタンを生成
-        mainButton = UIButton(frame: CGRectMake(0,0,50,50))
-        // ボタンの位置をviewの中心に設定
+        // Create Main Button
+        let mainButton = UIButton(frame: CGRectMake(0,0,50,50))
         mainButton.center = self.view.center
         
-        
-        // buttonLikePathクラスのインスタンス作成
+        // Create an instance of buttonLikePath Class
         let pathButtons          = buttonLikePath(frame:self.view.frame)
-        pathButtons.mainButton   = self.mainButton
-        pathButtons.mainPosition = self.mainButton.layer.position
+        pathButtons.mainButton   = mainButton
+        pathButtons.mainPosition = mainButton.layer.position
         
-        
-        // インスタンスをviewに追加
         self.view.addSubview(pathButtons)
         
-        // mainボタン各設定
+        // Customize Main Button
         mainButton.layer.masksToBounds = true
         mainButton.layer.cornerRadius = 25
         mainButton.backgroundColor = UIColor.hexStr("#81F3FD")
@@ -40,8 +33,8 @@ class ViewController: UIViewController {
         mainButton.addTarget(pathButtons,action:"touchDownMainButton:",forControlEvents: UIControlEvents.TouchDown)
         mainButton.tag = 0
         
-        // mainボタンをviewに追加
         self.view.addSubview(mainButton)
+        
     }
 
     override func didReceiveMemoryWarning() {
